@@ -2,7 +2,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        <img alt="<% @movies.title %>" src="<%= @movies.image_url %>" class="img-thumbnail" />
+        <img alt="<% @movies.title %>" src="<%= @movies.image_url %>" class="img-thumbnail title-show" />
       </div>
        
         
@@ -22,6 +22,12 @@
                 <td><strong>Plot:</strong></td>
                 <td><%= @movies.plot %></td>
               </tr>
+              
+              <tr>
+                <td><strong>Cast:</strong></td>
+                <td><%= @movies.cast %></td>
+              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -60,14 +66,73 @@
                 </tr>
               </thead>
               <tbody>
-                <% if @movies_list.present? %>
-                <% @movies_list.each_with_index do |movie_list,index| %>
 
-                  <%= render partial: "movie_top_list",locals: { movies: movie_list,index: index} %>
-                  <%end%>
-                <%else%>
-                No Movie Present with this genre
-                <%end%>
+                  <tr>
+                      <td>
+                          1
+                      </td>
+                      <td>
+                          Hello
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        2
+                      </td>
+                      <td>
+                          Hello2
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        3
+                      </td>
+                      <td>
+                          Hello3
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        4
+                      </td>
+                      <td>
+                          Hello3
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        5
+                      </td>
+                      <td>
+                          Hello4
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        6
+                      </td>
+                      <td>
+                          Hello5
+                      </td>
+                      <td>
+                          Default
+                      </td>
+                  </tr>
               </tbody>
               </table>
             </div>

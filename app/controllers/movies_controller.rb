@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 	before_action :set_id,except:[:new,:create,:index]
 
 	def index
+		@movies = Movie.all
 	end
 
 	def new
@@ -33,7 +34,7 @@ class MoviesController < ApplicationController
 
 	 private
    def movie_params
-     params.require(:movie).permit(:title,:image,:genre,:plot,:rating,:web, :year)
+     params.require(:movie).permit(:title,:image,:genre,:plot,:rating,:web, :year, :cast)
    end
  
    def set_id
