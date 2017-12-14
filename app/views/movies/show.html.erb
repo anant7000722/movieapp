@@ -4,7 +4,7 @@
       <div class="col-md-4">
         <img alt="<% @movies.title %>" src="<%= @movies.image_url %>" class="img-thumbnail title-show" />
       </div>
-       
+         
         
         
         <div class="table-responsive">
@@ -51,91 +51,45 @@
             </h3>
           </div>
           <div class="panel-body table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>
-                    #
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Genre
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-
+            
+              <table class="table">
+                
+                <thead>
                   <tr>
-                      <td>
-                          1
-                      </td>
-                      <td>
-                          Hello
-                      </td>
-                      <td>
-                          Default
-                      </td>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Genre
+                    </th>
                   </tr>
-                  <tr>
-                      <td>
-                        2
-                      </td>
-                      <td>
-                          Hello2
-                      </td>
-                      <td>
-                          Default
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                        3
-                      </td>
-                      <td>
-                          Hello3
-                      </td>
-                      <td>
-                          Default
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                        4
-                      </td>
-                      <td>
-                          Hello3
-                      </td>
-                      <td>
-                          Default
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                        5
-                      </td>
-                      <td>
-                          Hello4
-                      </td>
-                      <td>
-                          Default
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                        6
-                      </td>
-                      <td>
-                          Hello5
-                      </td>
-                      <td>
-                          Default
-                      </td>
-                  </tr>
-              </tbody>
+                </thead>
+                <tbody>
+                  <% @movies_sorted.each do |movie| %>
+                    <% if movie.genre == @movies.genre %>
+                      <tr>
+                        <td>
+                           <%= movie.id %>
+                        </td>
+                        <td>
+                          <a href= "<%= movie_path(movie.id)%>" >
+                          <%= movie.title %>
+                        </a>
+                        </td>
+                        <td>
+                          <%= movie.genre %>
+                        </td>
+                      </tr>
+                   
+                    <% end %>
+                  <% end %>
+                </tbody>
               </table>
-            </div>
+            
+          </div>
         </div>
       
   </div>

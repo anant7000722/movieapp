@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
 
 	def index
 		@movies = Movie.all
+		@movies_sorted = @movies.order('rating DESC')
 	end
 
 	def new
@@ -20,6 +21,8 @@ class MoviesController < ApplicationController
 	end
 
 	def show
+		@movies1 = Movie.all
+		@movies_sorted = @movies1.order('rating DESC')
 	end
 
 	def edit

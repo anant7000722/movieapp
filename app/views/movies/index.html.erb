@@ -45,6 +45,19 @@
 						</div>
 					</div> <a class="left carousel-control" href="#carousel-687387" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-687387" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 				</div>
+                <br>
+				<div class="row">
+  					<% @movies_sorted.each do |movie| %>
+    					<div class="col-sm-6 col-md-3">
+      						<div class="thumbnail">
+        						<a href= "<%= movie_path(movie.id)%>" >
+        						 <img src="<%= movie.image_url %>" class: 'image', movie %>
+      						   
+      						    </a>
+      						</div>
+    					</div>
+ 					 <% end %>
+				</div>
 
 
 				
