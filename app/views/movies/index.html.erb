@@ -28,7 +28,7 @@
                 <div class="row">
 					<div class = "col-md-12" >
 						<h1> Top viewed movies </h1>
-  							<% @movies_sorted.each do |movie| %>
+  							<% @movies_viewed.each do |movie| %>
     						<div class="col-sm-6 col-md-3">
       							<div class="thumbnail">
         							<a href= "<%= movie_path(movie.id)%>" >
