@@ -2,7 +2,7 @@
 <div class="col-md-12">
 				<div class="carousel slide" id="carousel-687387">
 					<ol class="carousel-indicators">
-						<li class="active" data-slide-to="0" data-target="#carousel-687387">
+						<li data-slide-to="0" data-target="#carousel-687387" class="active">
 						</li>
 						<li data-slide-to="1" data-target="#carousel-687387">
 						</li>
@@ -10,53 +10,50 @@
 						</li>
 					</ol>
 					<div class="carousel-inner">
-						<div class="item active">
-							<img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+						<% @movies.order('id DESC').limit(3).each_with_index do |f, index| %>
+						<div class="item <%= imgcall(index) %>">
+							<img style = "width: 300px; height: 400px; margin: 0px auto" alt="Carousel Bootstrap First" src="<%= f.image_url %>" class = "slider_custom" />
 							<div class="carousel-caption">
 								<h4>
 									First Thumbnail label
 								</h4>
-								<p>
-									hello 1st image
-								</p>
+
 							</div>
 						</div>
-						<div class="item">
-							<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
-							<div class="carousel-caption">
-								<h4>
-									Second Thumbnail label
-								</h4>
-								<p>
-									hello 2nd image
-								</p>
-							</div>
-						</div>
-						<div class="item">
-							<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
-							<div class="carousel-caption">
-								<h4>
-									Third Thumbnail label
-								</h4>
-								<p>
-									hello 3rd image
-								</p>
-							</div>
-						</div>
+						<% end %>
 					</div> <a class="left carousel-control" href="#carousel-687387" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-687387" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 				</div>
                 <br>
+
+                <div class="row">
+					<div class = "col-md-12" >
+						<h1> Top viewed movies </h1>
+  							<% @movies_sorted.each do |movie| %>
+    						<div class="col-sm-6 col-md-3">
+      							<div class="thumbnail">
+        							<a href= "<%= movie_path(movie.id)%>" >
+        						 		<img style= "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+      						    	</a>
+      							</div>
+    						</div>
+ 					 		<% end %>
+					</div>
+				</div>
+
 				<div class="row">
-  					<% @movies_sorted.each do |movie| %>
-    					<div class="col-sm-6 col-md-3">
-      						<div class="thumbnail">
-        						<a href= "<%= movie_path(movie.id)%>" >
-        						 <img src="<%= movie.image_url %>" class: 'image', movie %>
-      						   
-      						    </a>
-      						</div>
-    					</div>
- 					 <% end %>
+					<div class = "col-md-12" >
+						<h1> Top rated movies </h1>
+  							<% @movies_sorted.each do |movie| %>
+    						<div class="col-sm-6 col-md-3">
+      							<div class="thumbnail">
+        							<a href= "<%= movie_path(movie.id)%>" >
+        						 		<img style = "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+      						    	</a>
+      							</div>
+      							
+    						</div>
+ 					 		<% end %>
+					</div>
 				</div>
 
 
