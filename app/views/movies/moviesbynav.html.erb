@@ -1,0 +1,43 @@
+
+<div class="col-md-12">
+
+<div class="container">
+ <h1>Hey find me on this homepage</h1>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#byviews">By Views</a></li>
+    <li><a data-toggle="tab" href="#byrating">By Rating</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="byviews" class="tab-pane fade in active">
+      <h3>Top viewed movies</h3>
+     <% @movies_viewed.each do |movie| %>
+    						<div class="col-sm-6 col-md-3">
+      							<div class="thumbnail">
+        							<a href= "<%= movie_path(movie.id)%>" >
+        						 		<img style= "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+      						    	</a>
+      							</div>
+    						</div>
+ 					 		<% end %>
+    </div>
+    <div id="byrating" class="tab-pane fade">
+      <h3>Top rated movies</h3>
+      <% @movies_sorted.each do |movie| %>
+    						<div class="col-sm-6 col-md-3">
+      							<div class="thumbnail">
+        							<a href= "<%= movie_path(movie.id)%>" >
+        						 		<img style = "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+      						    	</a>
+      							</div>
+      							
+    						</div>
+ 					 		<% end %>
+    </div>
+  </div>
+</div>
+
+                
+
+				
+</div>
