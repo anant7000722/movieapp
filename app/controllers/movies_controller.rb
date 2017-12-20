@@ -13,8 +13,7 @@ class MoviesController < ApplicationController
     end
 
     def moviesbynav
-
-    	 if params[:search].present?
+		if params[:search].present?
 	      @movies = Movie.where(['title like ?', "%"+params[:search]+"%"])
 	    else
 	      @movies = Movie.all
@@ -40,16 +39,17 @@ class MoviesController < ApplicationController
 	def show
 		@movies1 = Movie.all
     	@movies = Movie.find(params[:id])
-    
     	@i = Impression.create(movie_id: @movies.id)
-  		@movies_sorted = @movies1.order('rating DESC')
-
-		@reviews = Review.where(movie_id: @movies.id).order("created_at DESC")
+		@movies_sorted = @movies1.order('rating DESC')
+		
+		@reviews = Review.where(movie_id: @movies.id).order("created_at DESC").limit(2)
+		@reviews_for_modal = Review.where(movie_id: @movies.id).order("created_at DESC")
+		
 	end
 
 	private
     def movie_params
-  	 params.require(:movie).permit(:title,:image,:genre,:plot,:rating,:web, :year, :cast)
+  	 	params.require(:movie).permit(:title,:image,:genre,:plot,:rating,:web, :year, :cast)
     end
  
   	def set_id

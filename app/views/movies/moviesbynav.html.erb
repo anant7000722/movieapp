@@ -23,7 +23,7 @@
     </div>
     <div id="byrating" class="tab-pane fade">
       <h3>Top rated movies</h3>
-      <% @movies_sorted.each do |movie| %>
+      		<% @movies_sorted.each do |movie| %>
     						<div class="col-sm-6 col-md-3">
       							<div class="thumbnail">
         							<a href= "<%= movie_path(movie.id)%>" >
@@ -32,7 +32,7 @@
       							</div>
       							
     						</div>
- 					 		<% end %>
+ 			<% end %>
     </div>
   </div>
 </div>

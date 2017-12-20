@@ -38,7 +38,7 @@
   
     <div class="form-group">
       <%= link_to "Write a Review", new_movie_review_path(@movies) %>
-  </div>
+    </div>
 
   <div class = "col-md-7 col-md-offset-1 well" >
      <h3>Reviews</h3>  
@@ -50,7 +50,10 @@
               <p><%= review.comment %></p>
             </div>
           <% end %>
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">More review</button>
         <% end %>
+        <h1>New Review</h1>
+          <%= render partial:'reviews/form', locals: {reviews: @reviews} %>
   </div>
   
   <div class="col-md-4">
@@ -104,6 +107,31 @@
       
   </div>
 </div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Reviews</h4>
+        </div>
+        <div class="modal-body">
+           <% @reviews_for_modal.each do |review| %>
+            <div class = "reviews" >
+              <p><%= review.comment %></p>
+
+            </div>
+
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 
 
