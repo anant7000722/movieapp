@@ -11,28 +11,27 @@
   <div class="tab-content">
     <div id="byviews" class="tab-pane fade in active">
       <h3>Top viewed movies</h3>
-     <% @movies_viewed.each do |movie| %>
-    						<div class="col-sm-6 col-md-3">
-      							<div class="thumbnail">
-        							<a href= "<%= movie_path(movie.id)%>" >
-        						 		<img style= "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
-      						    	</a>
-      							</div>
-    						</div>
- 					 		<% end %>
+        <% @movies_viewed.each do |movie| %>
+						<div class="col-sm-6 col-md-3">
+  							<div class="thumbnail">
+    							<a href= "<%= movie_path(movie.id)%>" >
+    						 		<img style= "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+  						    	</a>
+  							</div>
+						</div>
+ 				<% end %>
     </div>
     <div id="byrating" class="tab-pane fade">
       <h3>Top rated movies</h3>
-      		<% @movies_sorted.each do |movie| %>
-    						<div class="col-sm-6 col-md-3">
-      							<div class="thumbnail">
-        							<a href= "<%= movie_path(movie.id)%>" >
-        						 		<img style = "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
-      						    	</a>
-      							</div>
-      							
-    						</div>
- 			<% end %>
+    		<% @movies_sorted.each do |movie| %>
+					<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+  							<a href= "<%= movie_path(movie.id)%>" >
+  						 		<img style = "width: 300px;height: 400px;" src="<%= movie.image_url %>" class: 'image', movie %>
+						    </a>
+							</div>
+					</div>
+			  <% end %>
     </div>
   </div>
 </div>

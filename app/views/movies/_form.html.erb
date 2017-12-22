@@ -1,52 +1,53 @@
-<%= form_for @movies do |f| %>
- <% if @movies.errors.any? %>
-   <% @movies.errors.full_messages.each do |error| %>
-   <%= error.inspect%>
-      <!-- js add_gritter(error, title: "Task1 Notification", sticky: false,time: 5000) %> -->
-  <% end%>
-  <%end%>
+<%= form_for :movie, url: movies_path do |f| %>
+
  
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, id: :movie_title, class: "form-control ", required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, id: :movie_image, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :genre %>
-    <%= f.text_field :genre, id: :movie_genre, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :plot %>
-    <%= f.text_area :plot, id: :movie_plot, class: "form-control", required: true%>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :cast %>
-    <%= f.text_area :cast, id: :movie_cast, class: "form-control", required: true%>
-  </div>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, id: :movie_title, class: "form-control ", required: true %>
+    </div>
 
 
-  <div class="form-group">
-    <%= f.label :year %>
-    <%= f.date_field :year, id: :movie_year, as: :year %>
-  </div>
+  <%if params[:view] == "automatic"%>
+    <%= hidden_field_tag 'view', view %>
+  <%else%>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image, id: :movie_image, class: "form-control", required: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :rating %>
-    <%= f.number_field :rating, id: :movie_rating, class: "form-control", required: true %>
-  </div>
+    <div class="form-group">
+      <%= f.label :genre %>
+      <%= f.text_field :genre, id: :movie_genre, class: "form-control", required: true %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :web %>
-    <%= f.text_field :web, id: :movie_web, class: "form-control", required: true%>
-  </div>
-  
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :plot %>
+      <%= f.text_area :plot, id: :movie_plot, class: "form-control", required: true%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cast %>
+      <%= f.text_area :cast, id: :movie_cast, class: "form-control", required: true%>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :year %>
+      <%= f.date_field :year, id: :movie_year, as: :year %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rating %>
+      <%= f.number_field :rating, id: :movie_rating, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :web %>
+      <%= f.text_field :web, id: :movie_web, class: "form-control", required: true%>
+  <%end%>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
    <%end%>
