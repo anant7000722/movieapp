@@ -28,11 +28,22 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		@movies =  Movie.new(movie_params)
-		if @movies.save
-		   redirect_to @movies,notice: "movie Successfully Saved"
+		if params[:view] == "automatic"
+			@call = AnotherServiceCall.new.api_call(params[:movie][:title])
+			
+			if @call == true
+				redirect_to "http://localhost:3000/admin/movies", notice: "Successfully Saved"
+			else
+				redirect_to new_admin_movie_path(view: params[:view]), alert: "No movie found"
+			end
 		else
-		   render 'new'
+
+			@movies =  Movie.new(movie_params)
+			if @movies.save
+			   redirect_to @movies,notice: "movie Successfully Saved"
+			else
+			   render 'new'
+			end
 		end
 	end
 

@@ -3,10 +3,13 @@ class AnotherServiceCall
   def api_call(title)
     
     @title = title.split(' ').join('_')
+
     
     uri = URI("http://www.omdbapi.com/?t=#{@title}&apikey=c45185be")
     a = Net::HTTP.get(uri)
+
     b = JSON.parse(a)
+   
     
     if b["Response"] == "True"
     
@@ -40,11 +43,6 @@ class AnotherServiceCall
     @m.cast = cast
     
     if @m.save
-      
-      @last_saved_movie=Movie.last
-          @mov_id_for_views=@last_saved_movie.id
-          count=0
-          View.create(count: count , movie_id: @last_saved_movie.id)
       return true
     else
       return false
