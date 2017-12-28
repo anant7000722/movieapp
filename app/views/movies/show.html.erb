@@ -34,11 +34,9 @@
     </div>
   </div>
 </div>
-<div class = "col-md-8">
+<div class = "col-md-12">
   
-    <div class="form-group">
-      <%= link_to "Write a Review", new_movie_review_path(@movies) %>
-    </div>
+    
 
   <div class = "col-md-7 col-md-offset-1 well" >
      <h3>Reviews</h3>  
@@ -88,7 +86,7 @@
                            <%= movie.id %>
                         </td>
                         <td>
-                          <a href= "<%= movie_path(movie.id)%>" >
+                          <a href= "<%= movie_path(movie.id)%>", style = "color:blue" >
                           <%= movie.title %>
                         </a>
                         </td>
