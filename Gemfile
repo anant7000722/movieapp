@@ -42,6 +42,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'cloudinary'
   gem 'mysql2', '>= 0.3.18', '< 0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -53,6 +54,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'cloudinary'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

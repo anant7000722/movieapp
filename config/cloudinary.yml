@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: movie-app
+  api_key: '432131258896595'
+  api_secret: BOzittAlPXRUrnh06TFuuL1RvWA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: movie-app
+  api_key: '432131258896595'
+  api_secret: BOzittAlPXRUrnh06TFuuL1RvWA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: movie-app
+  api_key: '432131258896595'
+  api_secret: BOzittAlPXRUrnh06TFuuL1RvWA
+  enhance_image_tag: true
+  static_image_support: false
