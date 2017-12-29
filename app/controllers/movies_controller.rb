@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
 			@call = AnotherServiceCall.new.api_call(params[:movie][:title])
 			
 			if @call == true
-				redirect_to "http://localhost:3000/admin/movies", notice: "Successfully Saved"
+				redirect_to "#{ Rails.application.secrets.url}/admin/movies", notice: "Successfully Saved"
 			else
 				redirect_to new_admin_movie_path(view: params[:view]), alert: "No movie found"
 			end
