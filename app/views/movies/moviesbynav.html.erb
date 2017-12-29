@@ -2,15 +2,15 @@
 <div class="col-md-12">
 
 <div class="container">
- <h1>Hey find me on this homepage</h1>
+ <h1>WATCH MOVIES BY VIEWS AND RATING</h1>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#byviews">By Views</a></li>
-    <li><a data-toggle="tab" href="#byrating">By Rating</a></li>
+    <li class="active"><a data-toggle="tab" href="#byviews"><strong>By Views</strong></a></li>
+    <li><a data-toggle="tab" href="#byrating"><strong>By Rating</strong></a></li>
   </ul>
 
   <div class="tab-content", style="float: left">
     <div id="byviews" class="tab-pane fade in active">
-      <h3>Top viewed movies</h3>
+      <h3><strong>Top viewed movies</strong></h3>
         <% @movies_viewed.each do |movie| %>
 						<div class="col-sm-6 col-md-3">
   							<div class="thumbnail">
@@ -22,7 +22,7 @@
  				<% end %>
     </div>
     <div id="byrating" class="tab-pane fade">
-      <h3>Top rated movies</h3>
+      <h3><strong>Top rated movies</strong></h3>
     		<% @movies_sorted.each do |movie| %>
 					<div class="col-sm-6 col-md-3">
 							<div class="thumbnail">
