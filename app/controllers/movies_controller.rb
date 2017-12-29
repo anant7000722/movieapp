@@ -3,8 +3,11 @@ class MoviesController < ApplicationController
 
 
 	def index
+		search = params[:search]
 	    if params[:search].present?
-	      where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%","%#{search.titleize}%").order('rating ASC')
+	      @movies = Movie.where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%",
+	      	"%#{search.titleize}%")
+	      
 	    else
 	      @movies = Movie.all
 	    end
@@ -13,8 +16,10 @@ class MoviesController < ApplicationController
     end
 
     def moviesbynav
+    	search = params[:search]
 		if params[:search].present?
-	      where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%","%#{search.titleize}%").order('rating ASC')
+	      @movies = Movie.where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%",
+	      	"%#{search.titleize}%")
 	    else
 	      @movies = Movie.all
 	    end
