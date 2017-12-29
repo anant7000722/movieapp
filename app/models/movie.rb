@@ -6,4 +6,9 @@ class Movie < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :impressions, dependent: :destroy
 
+
+    def self.search(search)
+  	 	where("title LIKE ?", "%#{search}%") 
+	end
+
 end
