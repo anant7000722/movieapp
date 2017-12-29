@@ -13,6 +13,7 @@ default: &default2
   adapter: postgresql
   encoding: unicode
   pool: 5
+  host: localhost
  
   
 
