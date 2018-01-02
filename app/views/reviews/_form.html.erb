@@ -13,8 +13,17 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment, id: :review_comment %>
+    <% if user_signed_in? %>
+    <div class = "col-md-2" >
+      <img style = "width: 100px;height: 100px;" src="<%= @img %>" class="img-thumbnail title-show" />
+    </div>
+      <%= form.label :comment %>
+      <%= form.text_area :comment, id: :review_comment %>
+
+    <% else %>
+      <%= form.label :comment %>
+      <%= form.text_area :comment, id: :review_comment %>
+    <% end %>
   </div>
 
   <div class="actions">

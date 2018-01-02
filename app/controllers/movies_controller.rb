@@ -58,9 +58,12 @@ class MoviesController < ApplicationController
     	@i = Impression.create(movie_id: @movies.id)
 		@movies_sorted = @movies1.order('rating DESC')
 		
+		@img = current_user.u_image_url
+	
+		@user = User.all
+
 		@reviews = Review.where(movie_id: @movies.id).order("created_at DESC").limit(2)
 		@reviews_for_modal = Review.where(movie_id: @movies.id).order("created_at DESC")
-		
 	end
 
 	private

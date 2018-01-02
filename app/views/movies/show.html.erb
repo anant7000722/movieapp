@@ -45,10 +45,20 @@
         <% else %>
           <% @reviews.each do |review| %>
             <div class = "reviews" >
-              <p><%= review.comment %></p>
+              <div class = "row" >
+
+                <% @user.each do |usr| %>
+                  <% if usr.id == review.user_id %>
+                    <div class = "col-md-2" >
+                      <img style = "width: 100px;height: 50px;" src="<%= usr.u_image_url %>" class="img-thumbnail title-show" />
+                    </div>
+                    <p><%= review.comment %></p>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           <% end %>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">More review</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">More review</button>
         <% end %>
         <h1>New Review</h1>
           <%= render partial:'reviews/form', locals: {reviews: @reviews} %>
@@ -115,12 +125,27 @@
           <h4 class="modal-title">Reviews</h4>
         </div>
         <div class="modal-body">
-           <% @reviews_for_modal.each do |review| %>
+          <% @reviews_for_modal.each do |review| %>
             <div class = "reviews" >
-              <p><%= review.comment %></p>
+              <div class = "row">
 
+                <% @user.each do |usr| %>
+
+                  <% if usr.id == review.user_id %>
+                    
+                  
+                    <div class = "col-md-2" >
+                      <img style = "width: 100px;height: 50px;" src="<%= usr.u_image_url %>" class="img-thumbnail title-show" />
+                    </div>
+                    
+                    <div class = "col-md-4">
+                      <p><%= review.comment %></p>
+                    </div>
+                
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-
           <% end %>
         </div>
         <div class="modal-footer">
