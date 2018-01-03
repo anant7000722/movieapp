@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
 
 	def index
+		debugger
 		search = params[:search]
 	    if params[:search].present?
 	      @movies = Movie.where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%",
@@ -16,6 +17,7 @@ class MoviesController < ApplicationController
     end
 
     def moviesbynav
+    	debugger
     	search = params[:search]
 		if params[:search].present?
 	      @movies = Movie.where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%",
@@ -29,10 +31,12 @@ class MoviesController < ApplicationController
     end
 
 	def new
+		debugger
 		@movies = Movie.new
 	end
 
 	def create
+		debugger
 		if params[:view] == "automatic"
 			@call = AnotherServiceCall.new.api_call(params[:movie][:title])
 			
@@ -53,6 +57,7 @@ class MoviesController < ApplicationController
 	end
 
 	def show
+		debugger
 		@movies1 = Movie.all
     	@movies = Movie.find(params[:id])
     	@i = Impression.create(movie_id: @movies.id)
@@ -71,10 +76,12 @@ class MoviesController < ApplicationController
 
 	private
     def movie_params
+    	debugger
   	 	params.require(:movie).permit(:title,:image,:genre,:plot,:rating,:web, :year, :cast)
     end
  
   	def set_id
+  		debugger
    		@movies = Movie.find(params[:id])
   	end
 
