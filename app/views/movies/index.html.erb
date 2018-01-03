@@ -1,5 +1,8 @@
 <h1>BEST MOVIES</h1>
 <div class="col-md-12">
+	 <% if @movies.present? %>
+	
+	
 				<div class="carousel slide" id="carousel-687387">
 					<ol class="carousel-indicators">
 						<li data-slide-to="0" data-target="#carousel-687387" class="active">
@@ -9,10 +12,13 @@
 						<li data-slide-to="2" data-target="#carousel-687387">
 						</li>
 					</ol>
+
 					<div class="carousel-inner">
 						<% @movies.order('id DESC').limit(3).each_with_index do |f, index| %>
 						<div class="item <%= imgcall(index) %>">
+								<a href= "<%= movie_path(f.id)%>" >
 							<img style = "width: 300px; height: 400px; margin: 0px auto" alt="Carousel Bootstrap First" src="<%= f.image_url %>" class = "slider_custom" />
+						</a>
 							<div class="carousel-caption">
 								<h4>
 									First Thumbnail label
@@ -62,6 +68,10 @@
   						</div>
 				</div>
 
-
+     <% else %>
+   		<div class="alert alert-warning" role="alert">
+  			<strong>Warning!</strong> No movies found with this name, search again.
+		</div>
+	<%end%>
 				
 </div>
