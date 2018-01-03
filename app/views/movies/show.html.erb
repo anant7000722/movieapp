@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-4">
         <img style = "width: 300px;height: 400px;" alt="<% @movies.title %>" src="<%= @movies.image_url %>" class="img-thumbnail title-show" />
       </div>
          
@@ -12,7 +12,7 @@
             <tbody>
               <tr>
                 <td><strong>Title:</strong></td>
-                <td><%= @movies.title + " " + "(#{@movies.year})"%> <%= image_tag 'rating.png' ,class: "rating-show-image"%><p class= "rating-show"> <%= @movies.rating %></p></td>
+                <td><%= @movies.title + " " %> <%= image_tag 'rating.png' ,class: "rating-show-image"%><p class= "rating-show"> <%= @movies.rating %></p></td>
               </tr>
               <tr>
                 <td><strong>Genre:</strong></td>
@@ -36,8 +36,6 @@
 </div>
 <div class = "col-md-12">
   
-    
-
   <div class = "col-md-7 col-md-offset-1 well" >
      <h3>Reviews</h3>  
         <% if @reviews.blank? %>
@@ -49,15 +47,16 @@
 
                 <% @user.each do |usr| %>
                   <% if usr.id == review.user_id %>
-                    <div class = "col-md-2" >
+                    <div class = "col-md-2 col-sm-2" >
                       <img style = "width: 100px;height: 50px;" src="<%= usr.u_image_url %>" class="img-thumbnail title-show" />
                     </div>
-                    <p><%= review.comment %></p>
+                    <p><strong><%= review.comment %></strong></p>
                   <% end %>
                 <% end %>
               </div>
             </div>
           <% end %>
+          <br/>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">More review</button>
         <% end %>
         <h1>New Review</h1>
@@ -78,7 +77,7 @@
                 <thead>
                   <tr>
                     <th>
-                      #
+                      ID
                     </th>
                     <th>
                       Name
@@ -96,12 +95,16 @@
                            <%= movie.id %>
                         </td>
                         <td>
-                          <a href= "<%= movie_path(movie.id)%>", style = "color:blue" >
-                          <%= movie.title %>
-                        </a>
+                          <a href= "<%= movie_path(movie.id)%>", style = "color:orange" >
+                            <strong>
+                              <%= movie.title %>
+                            </strong>
+                          </a>
                         </td>
                         <td>
-                          <%= movie.genre %>
+                          <strong>
+                            <%= movie.genre %>
+                          </strong>
                         </td>
                       </tr>
                    
